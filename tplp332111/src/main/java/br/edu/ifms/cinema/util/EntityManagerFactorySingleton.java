@@ -1,4 +1,4 @@
-
+package br.edu.ifms.cinema.util;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -9,16 +9,16 @@ import javax.persistence.Persistence;
 
 /**
  *
- * @author Estudante
+ * @author victor ferreira
  */
-public class CreateEntityManagerFactorySingleton {
-    private EntityManagerFactory emf;
-    private final String PERSISTENCE_UNIT_NAME = "UP";
+public class EntityManagerFactorySingleton {
+    private static EntityManagerFactory emf;
+    private static final String PERSISTENCE_UNIT_NAME = "UP";
 
-    private CreateEntityManagerFactorySingleton() {
+    private EntityManagerFactorySingleton() {
     }
     
-    public EntityManagerFactory getEMF(){
+    public static EntityManagerFactory getEMF(){
         if(emf == null){
             synchronized (EntityManagerFactory.class) {
                 if(emf == null){
@@ -29,3 +29,6 @@ public class CreateEntityManagerFactorySingleton {
         return emf;
     }  
 }
+
+
+

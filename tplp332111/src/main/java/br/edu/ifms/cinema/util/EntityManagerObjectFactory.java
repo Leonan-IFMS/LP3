@@ -1,6 +1,6 @@
-
+package br.edu.ifms.cinema.util;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
+
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -9,12 +9,13 @@ import javax.persistence.EntityManagerFactory;
 
 /**
  *
- * @author Estudante
+ * @author victor ferreira
  */
 public class EntityManagerObjectFactory {
-    private EntityManagerFactory emf;
-    
-    public EntityManager getEM(){
-        return emf.createEntityManager();
+    public static EntityManager getEM(){
+        return EntityManagerFactorySingleton.getEMF().createEntityManager();
     }
 }
+
+
+

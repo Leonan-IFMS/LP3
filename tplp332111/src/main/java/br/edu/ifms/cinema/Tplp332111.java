@@ -47,7 +47,7 @@ public class Tplp332111 {
         f2.getSessoes().add(s1);
         f3.getSessoes().add(s2);
         f3.getSessoes().add(s3);
-        FilmeDAO fdao= new FilmeDAO();
+        FilmeDAO fdao = new FilmeDAO();
         fdao.add(f1);
         fdao.add(f2);
         fdao.add(f3);

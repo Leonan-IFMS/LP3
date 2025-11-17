@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
  *
  * @author Estudante
  */
-class SessaoRequestDTO {
+public class SessaoRequestDTO {
     private Long id;
     private LocalDateTime horario;
     private Long idFilme;

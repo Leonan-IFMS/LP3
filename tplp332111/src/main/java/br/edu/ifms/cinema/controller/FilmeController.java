@@ -6,6 +6,7 @@ package br.edu.ifms.cinema.controller;
 
 import br.edu.ifms.cinema.dao.FilmeDAO;
 import br.edu.ifms.cinema.dto.FilmeResponseDTO;
+import br.edu.ifms.cinema.dto.SessaoRequestDTO;
 import br.edu.ifms.cinema.dto.FilmeRequestDTO;
 import br.edu.ifms.cinema.dao.GenericDAO;
 import br.edu.ifms.cinema.model.Filme;
@@ -35,11 +36,10 @@ public class FilmeController {
             filme.setGenero(dto.getGenero());
             filme.setClassificacao(dto.getClassificacao());
             filme.setDuracaoMinutos(dto.getDuracaoMinutos());
-            filme.setDuracaoMinutos(dto.getDuracaoMinutos());
             for (SessaoRequestDTO sessaoDTO : dto.getSessoes()) {
                 Sessao sessao = new Sessao();
                 sessao.setId(sessaoDTO.getId());
-                sessao.setHorario(sessaoDTO.getHorario);
+                sessao.setHorario(sessaoDTO.getHorario());
                 //sessao.setFilme(sessaoDTO.getIdFilme());  
             }
             filmeDAO = new FilmeDAO();

@@ -19,15 +19,17 @@ public class FilmeDAO implements GenericDAO<Filme> {
     private EntityManager em;
     
     @Override
-    public void add(Filme entity) {
+    public boolean add(Filme entity) {
         em = EntityManagerObjectFactory.getEM();
         try {
             em.getTransaction().begin();
             em.persist(entity);
             em.getTransaction().commit();
+            return true;
         } catch (Exception e) {
             System.err.println(e.getMessage());
             em.getTransaction().rollback();
+            return false;
         } finally {
             em.close();
         }
@@ -40,18 +42,18 @@ public class FilmeDAO implements GenericDAO<Filme> {
             em.getTransaction().begin();
             em.merge(entity);
             em.getTransaction().commit();
-            return entity;
+            return true;
         } catch (Exception e) {
             System.err.println(e.getMessage());
             em.getTransaction().rollback();
-            return entity;
+            return false;
         } finally {
             em.close();
         }
     }
 
     @Override
-    public void remove(Filme entity) {
+    public boolean remove(Filme entity) {
         em = EntityManagerObjectFactory.getEM();
         try {
             if(em.find(Filme.class, entity.getId()) == null)

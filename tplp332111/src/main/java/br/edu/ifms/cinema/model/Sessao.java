@@ -29,14 +29,14 @@ public class Sessao {
     private LocalDateTime horario;
 
     @ManyToOne()
-    @JoinColumn(name = "filme_id", nullable = false)
+    @JoinColumn(name = "filme_id")
     private Filme filme;
 
     @ManyToOne()
-    @JoinColumn(name = "sala_id", nullable = false)
+    @JoinColumn(name = "sala_id")
     private Sala sala;
 
-    @OneToMany(mappedBy = "sessao", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "sessao")
     private List<Ingresso> ingressos;
 
     public Long getId() {

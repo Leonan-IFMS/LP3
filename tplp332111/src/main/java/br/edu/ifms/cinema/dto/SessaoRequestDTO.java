@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class SessaoRequestDTO {
     private Long id;
     private LocalDateTime horario;
-    private Long idFilme;
+    private FilmeRequestDTO filme;
 
     public Long getId() {
         return id;
@@ -32,13 +32,15 @@ public class SessaoRequestDTO {
         this.horario = horario;
     }
 
-    public Long getIdFilme() {
-        return idFilme;
+    public FilmeRequestDTO getFilme() {
+        return filme;
     }
 
-    public void setIdFilme(Long idFilme) {
-        this.idFilme = idFilme;
+    public void setFilme(FilmeRequestDTO filme) {
+        this.filme = filme;
     }
+
+
     
     
 }

@@ -19,15 +19,17 @@ public class IngressoDAO implements GenericDAO<Ingresso> {
     private EntityManager em;
     
     @Override
-    public void add(Ingresso entity) {
+    public boolean add(Ingresso entity) {
         em = EntityManagerObjectFactory.getEM();
         try {
             em.getTransaction().begin();
             em.persist(entity);
             em.getTransaction().commit();
+            return true;
         } catch (Exception e) {
             System.err.println(e.getMessage());
             em.getTransaction().rollback();
+            return false;
         } finally {
             em.close();
         }
@@ -51,7 +53,7 @@ public class IngressoDAO implements GenericDAO<Ingresso> {
     }
 
     @Override
-    public void remove(Ingresso entity) {
+    public boolean remove(Ingresso entity) {
         em = EntityManagerObjectFactory.getEM();
         try {
             if(em.find(Ingresso.class, entity.getId()) == null)
@@ -59,9 +61,11 @@ public class IngressoDAO implements GenericDAO<Ingresso> {
             em.getTransaction().begin();
             em.remove(entity);
             em.getTransaction().commit();
+            return true;
         } catch (Exception e) {
             System.err.println(e.getMessage());
             em.getTransaction().rollback();
+            return false;
         } finally {
             em.close();
         }

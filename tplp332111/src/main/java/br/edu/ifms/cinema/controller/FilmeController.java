@@ -18,15 +18,20 @@ import br.edu.ifms.cinema.model.Sessao;
  */
 public class FilmeController {
     private static GenericDAO filmeDAO;
+
+    public FilmeController() {
+        filmeDAO = new FilmeDAO();
+    }
+    
+
     
     public FilmeResponseDTO add(FilmeRequestDTO dto) {
         FilmeResponseDTO response = new FilmeResponseDTO();
         if(dto != null){
-            
             // uma serie de validaçoes
-            if (dto.getId() != null) {
+            if(dto.getId() != null) {
                 response.setStatus(false);
-                response.setMessage("Transaçao invalida");
+                response.setMessage("Transação inválida");
                 return response;
             }
             
@@ -40,18 +45,17 @@ public class FilmeController {
                 Sessao sessao = new Sessao();
                 sessao.setId(sessaoDTO.getId());
                 sessao.setHorario(sessaoDTO.getHorario());
-                //sessao.setFilme(sessaoDTO.getIdFilme());  
+                sessao.setFilme(filme); 
+                filme.getSessoes().add(sessao);
             }
-            filmeDAO = new FilmeDAO();
+
             filmeDAO.add(filme);
             // mapeamento de filme, para filmeResponseDTO e
             // SessaoResponseDTO
-            response.setStatus(true);
-            response.setMessage("Filme cadastrado");
+           response.setStatus(true);
+           response.setMessage("Filme cadastrado");
         }
 
-        
-        
         return response;
     }
 }

@@ -11,9 +11,9 @@ import java.util.List;
  * @author Leonan
  */
 public interface GenericDAO<T> {
-    public void add(T entity);
+    public boolean add(T entity);
     public T update(T entity);
-    public void remove (T entity);
+    public boolean remove (T entity);
     public T getById(Long id);
     public List<T> getAll();
     

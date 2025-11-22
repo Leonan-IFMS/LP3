@@ -4,7 +4,10 @@
  */
 package br.edu.ifms.cinema.mapper;
 
+import br.edu.ifms.cinema.dto.FilmeResponseDTO;
 import br.edu.ifms.cinema.dto.SessaoRequestDTO;
+import br.edu.ifms.cinema.dto.SessaoResponseDTO;
+import br.edu.ifms.cinema.model.Filme;
 import br.edu.ifms.cinema.model.Sessao;
 
 /**
@@ -12,20 +15,24 @@ import br.edu.ifms.cinema.model.Sessao;
  * @author Estudante
  */
 public class SessaoMap {
-    // mapeia um objeto SessaorequestDTO para um obj Sessao  
-    // falta entidade filme
-    public static Sessao toSessao(SessaoRequestDTO dto,Filme filme) {
-      Sessao sessao = new Sessao();
-      sessao.setId(dto.getId());
-      sessao.setHorario(dto.getHorario());
-      sessao.setFilme(filme);
-      return sessao;
+    // mapeia um obj SessaoResquestDTO para(to) um obj sessao
+    public static Sessao toSessao(SessaoRequestDTO dto, Filme filme){
+        Sessao sessao = new Sessao();
+        sessao.setId(dto.getId());
+        sessao.setHorario(dto.getHorario());
+        sessao.setFilme(filme);
+        return sessao;
     }
-    //mapeia um objeto SessaoResponseDTO a partir (from) de um objeto de sessao
-    // ou seja mapeia um objeto de sessao para um objeto SessaoResponseDTO
     
-    //falta sessaoResponseDTO
-    public static SessaoResponseDTO fromSessao(Sessao sessao) {
-        return null
+    // mapeia um obj SessaoResquestDTO a partir(from) de um obj sessao
+    // ou seja, mapeia um obj sessao para um obj SessaoResquestDTO
+    public static SessaoResponseDTO fromSessao(Sessao sessao, FilmeResponseDTO filme){
+        SessaoResponseDTO response = new SessaoResponseDTO();
+        response.setId(sessao.getId());
+        response.setHorario(sessao.getHorario());
+        response.setFilme(filme);
+        return response;
     }
+    
+    
 }

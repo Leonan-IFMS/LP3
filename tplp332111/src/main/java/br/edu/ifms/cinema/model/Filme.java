@@ -1,15 +1,10 @@
-///*
+/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package br.edu.ifms.cinema.model;
 
-/**
- *
- * @author Leonan
- */
-
-
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -19,21 +14,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+/**
+ *
+ * @author Admin
+ */
 @Entity
-public class Filme {
+public class Filme implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String titulo;
-
     private String genero;
-
     private Integer duracaoMinutos;
-
     private String classificacao;
-
     @OneToMany(mappedBy = "filme", cascade = CascadeType.ALL)
     private List<Sessao> sessoes = new LinkedList<>();
 
@@ -85,7 +80,6 @@ public class Filme {
         this.sessoes = sessoes;
     }
     
-    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -108,6 +102,7 @@ public class Filme {
 
     @Override
     public String toString() {
-        return "br.edu.ifms.cinema.model.exemplo[ id=" + id + " ]";
+        return "br.edu.ifms.cinema.model.Filme[ id=" + id + " ]";
     }
+    
 }

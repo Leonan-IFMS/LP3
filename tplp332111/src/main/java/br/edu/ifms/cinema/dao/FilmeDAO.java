@@ -4,6 +4,7 @@
  */
 package br.edu.ifms.cinema.dao;
 
+
 import br.edu.ifms.cinema.model.Filme;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -13,7 +14,7 @@ import javax.persistence.Query;
 
 /**
  *
- * @author Leonan
+ * @author Estudante
  */
 public class FilmeDAO implements GenericDAO<Filme> {
     private EntityManager em;
@@ -42,11 +43,11 @@ public class FilmeDAO implements GenericDAO<Filme> {
             em.getTransaction().begin();
             em.merge(entity);
             em.getTransaction().commit();
-            return true;
+            return entity;
         } catch (Exception e) {
             System.err.println(e.getMessage());
             em.getTransaction().rollback();
-            return false;
+            return entity;
         } finally {
             em.close();
         }
@@ -61,9 +62,11 @@ public class FilmeDAO implements GenericDAO<Filme> {
             em.getTransaction().begin();
             em.remove(entity);
             em.getTransaction().commit();
+            return true;
         } catch (Exception e) {
             System.err.println(e.getMessage());
             em.getTransaction().rollback();
+            return false;
         } finally {
             em.close();
         }
@@ -73,7 +76,7 @@ public class FilmeDAO implements GenericDAO<Filme> {
     public Filme getById(Long id) {
         em = EntityManagerObjectFactory.getEM();
         try {
-            Query query = em.createQuery("SELECT c FROM Filme c WHERE c.id = :id");
+            Query query = em.createQuery("SELECT c FROM Cliente c WHERE c.id = :id");
             query.setParameter("id", id);
             return (Filme) query.getSingleResult();
         } catch (Exception e) {
@@ -88,7 +91,7 @@ public class FilmeDAO implements GenericDAO<Filme> {
     public List<Filme> getAll() {
         em = EntityManagerObjectFactory.getEM();
         try {
-            Query query = em.createQuery("SELECT c FROM Filme c");
+            Query query = em.createQuery("SELECT c FROM Cliente c");
             return query.getResultList();
         } catch (Exception e) {
             System.err.println(e.getMessage());
@@ -100,5 +103,3 @@ public class FilmeDAO implements GenericDAO<Filme> {
 
     
 }
-
-

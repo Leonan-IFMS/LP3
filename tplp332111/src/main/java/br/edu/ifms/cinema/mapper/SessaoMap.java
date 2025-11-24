@@ -25,7 +25,7 @@ public class SessaoMap {
     }
     
     // mapeia um obj SessaoResquestDTO a partir(from) de um obj sessao
-    // ou seja, mapeia um obj sessao para um obj SessaoResquestDTO
+    // ou seja, mapeia um obj sessao para um obj SessaoResquestDTOsa
     public static SessaoResponseDTO fromSessao(Sessao sessao, FilmeResponseDTO filme){
         SessaoResponseDTO response = new SessaoResponseDTO();
         response.setId(sessao.getId());

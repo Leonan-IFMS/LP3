@@ -9,7 +9,7 @@ import javax.persistence.EntityManager;
 
 /**
  *
- * @author victor ferreira
+ * @author Leonan
  */
 public class EntityManagerObjectFactory {
     public static EntityManager getEM(){

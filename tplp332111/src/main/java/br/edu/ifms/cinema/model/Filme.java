@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 
 /**
  *
- * @author Admin
+ * @author Leonan
  */
 @Entity
 public class Filme implements Serializable {

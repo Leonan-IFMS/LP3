@@ -9,7 +9,7 @@ import javax.persistence.Persistence;
 
 /**
  *
- * @author victor ferreira
+ * @author Leonan
  */
 public class EntityManagerFactorySingleton {
     private static EntityManagerFactory emf;

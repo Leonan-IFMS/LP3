@@ -54,7 +54,6 @@ Atualmente, o projeto encontra-se com o "backend" estruturado e funcional. A cam
 O código está pronto e modularizado para ser acoplado a uma interface gráfica **Java Swing** (classes `MainFrame` e `SessaoView`) na próxima etapa do desenvolvimento.
 
 ## 7. Aprendizados e Desafios
-> *Seção reservada para reflexão do aluno.*
 
 * **Aprendizados:** O projeto permitiu consolidar o entendimento sobre como o JPA facilita a manipulação de bancos de dados, eliminando a necessidade de escrever SQL puro para operações básicas. A aplicação prática dos DTOs mostrou a importância de separar os dados internos (banco) dos dados externos (tela).
 * **Desafios:** Um dos principais desafios foi configurar corretamente o relacionamento em cascata (`CascadeType`) entre as entidades, como no caso de salvar uma `Sessao` que referencia uma `Sala` nova, ou salvar um `Cliente` junto com seus `Ingressos`. Isso foi resolvido ajustando as anotações nas entidades e garantindo a correta inicialização das listas nos construtores ou atributos.

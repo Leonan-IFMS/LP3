@@ -32,7 +32,7 @@ public class Sessao {
     @JoinColumn(name = "filme_id")
     private Filme filme;
 
-    @ManyToOne()
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "sala_id")
     private Sala sala;
 

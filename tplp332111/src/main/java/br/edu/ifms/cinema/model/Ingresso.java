@@ -38,10 +38,6 @@ public class Ingresso {
     @JoinColumn(name = "cliente_id", nullable = false)
     private Cliente cliente;
 
-    @OneToOne
-    @JoinColumn(name = "assento_id", unique = true, nullable = false)
-    private Assento assento;
-
     public Long getId() {
         return id;
     }
@@ -80,14 +76,6 @@ public class Ingresso {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
-    }
-
-    public Assento getAssento() {
-        return assento;
-    }
-
-    public void setAssento(Assento assento) {
-        this.assento = assento;
     }
     
     @Override

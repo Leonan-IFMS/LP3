@@ -31,9 +31,6 @@ public class Sala {
     @OneToMany(mappedBy = "sala", cascade = CascadeType.ALL)
     private List<Assento> assentos;
 
-//    @OneToMany(mappedBy = "sala")
-//    private List<Sessao> sessoes;
-
     public Long getId() {
         return id;
     }
@@ -66,16 +63,6 @@ public class Sala {
         this.assentos = assentos;
     }
 
-//    public List<Sessao> getSessoes() {
-//        return sessoes;
-//    }
-//
-//    public void setSessoes(List<Sessao> sessoes) {
-//        this.sessoes = sessoes;
-//    }
-    
-    
-    
     @Override
     public int hashCode() {
         int hash = 0;

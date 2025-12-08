@@ -28,14 +28,12 @@ public class FilmeController {
     public FilmeResponseDTO add(FilmeRequestDTO dto){
         FilmeResponseDTO response = new FilmeResponseDTO();
         if(dto != null){
-            // um série de validações
             
             if(dto.getId() != null){
                 response.setStatus(false);
                 response.setMessage("Transação Inválida");
                 return response;
             }
-             // depois das validações
             Filme filme = new Filme();
             filme.setTitulo(dto.getTitulo());
             filme.setGenero(dto.getGenero());
@@ -45,7 +43,6 @@ public class FilmeController {
                 Sessao sessao = SessaoMap.toSessao(sessaoDTO, filme);
                 filme.getSessoes().add(sessao);
             }
-            filmeDAO.add(filme);
             
             boolean retorno = filmeDAO.add(filme);
             
@@ -66,27 +63,21 @@ public class FilmeController {
                 response.setStatus(false);
                 response.setMessage("Transação Inválida");
             }
-            
-            // mapeamento de filme, para FilmeResponseDTO e
-            // SessaoResponseDTO
         }
         
         
         return response;
     }
-    
-    
+
     public FilmeResponseDTO update(FilmeRequestDTO dto){
         FilmeResponseDTO response = new FilmeResponseDTO();
         if(dto != null){
-            // um série de validações
             
             if(dto.getId() == null){
                 response.setStatus(false);
                 response.setMessage("Transação Inválida");
                 return response;
             }
-             // depois das validações
             Filme filme = new Filme();
             filme.setId(dto.getId());
             filme.setTitulo(dto.getTitulo());
@@ -115,17 +106,6 @@ public class FilmeController {
                 sessaoDTO.setFilme(response);
                 response.getSessoes().add(sessaoDTO);
             }
-            
-//            if(retorno){
-//                response.setStatus(true);
-//                response.setMessage("Filme Cadastrado");
-//            }else{
-//                response.setStatus(false);
-//                response.setMessage("Transação Inválida");
-//            }
-            
-            // mapeamento de filme, para FilmeResponseDTO e
-            // SessaoResponseDTO
         }
         
         

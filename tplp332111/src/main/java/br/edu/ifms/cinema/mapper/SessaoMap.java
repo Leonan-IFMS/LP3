@@ -15,24 +15,27 @@ import br.edu.ifms.cinema.model.Sessao;
  * @author Estudante
  */
 public class SessaoMap {
-    // mapeia um obj SessaoResquestDTO para(to) um obj sessao
-    public static Sessao toSessao(SessaoRequestDTO dto, Filme filme){
+
+    public static Sessao toSessao(SessaoRequestDTO dto, Filme filme) {
         Sessao sessao = new Sessao();
         sessao.setId(dto.getId());
         sessao.setHorario(dto.getHorario());
         sessao.setFilme(filme);
+
+        if (dto.getSala() != null) {
+            sessao.setSala(SalaMap.toSala(dto.getSala()));
+        }
+
         return sessao;
     }
-    
-    // mapeia um obj SessaoResquestDTO a partir(from) de um obj sessao
-    // ou seja, mapeia um obj sessao para um obj SessaoResquestDTOsa
-    public static SessaoResponseDTO fromSessao(Sessao sessao, FilmeResponseDTO filme){
+
+    public static SessaoResponseDTO fromSessao(Sessao sessao, FilmeResponseDTO filme) {
         SessaoResponseDTO response = new SessaoResponseDTO();
         response.setId(sessao.getId());
         response.setHorario(sessao.getHorario());
         response.setFilme(filme);
+
         return response;
     }
-    
-    
+
 }

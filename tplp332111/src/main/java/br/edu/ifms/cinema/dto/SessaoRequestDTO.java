@@ -11,9 +11,11 @@ import java.time.LocalDateTime;
  * @author Estudante
  */
 public class SessaoRequestDTO {
+
     private Long id;
     private LocalDateTime horario;
     private FilmeRequestDTO filme;
+    private SalaRequestDTO sala;
 
     public Long getId() {
         return id;
@@ -39,7 +41,12 @@ public class SessaoRequestDTO {
         this.filme = filme;
     }
 
-    
-    
-    
+    public SalaRequestDTO getSala() {
+        return sala;
+    }
+
+    public void setSala(SalaRequestDTO sala) {
+        this.sala = sala;
+    }
+
 }

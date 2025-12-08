@@ -8,6 +8,7 @@ package br.edu.ifms.cinema.model;
  *
  * @author Leonan
  */
+import java.util.LinkedList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -32,7 +33,7 @@ public class Cliente {
 
   
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Ingresso> ingressos;
+    private List<Ingresso> ingressos = new LinkedList<>();
 
     @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
     private CartaoFidelidade cartaoFidelidade;
